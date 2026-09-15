@@ -1,7 +1,7 @@
 # Web Server
 server:
   servlet:
-    context-path: /ekanTest/api
+    context-path: /f1rstTest/api
 
 # Database
 # Valores são carregados do Parameter Store ou variáveis de ambiente

@@ -1,0 +1,34 @@
+# Web Server
+server:
+  servlet:
+    context-path: /ekanTest/api
+
+# Database
+# Valores são carregados do Parameter Store ou variáveis de ambiente
+# Ordem de precedência: System Property (Parameter Store) > Environment Variable > Default
+spring:
+  datasource:
+    url: ${DATASOURCE_URL:jdbc:postgresql://localhost:5432/f1rstdb?currentSchema=f1rst}
+    username: ${DATASOURCE_USER:postgres}
+    password: ${DATASOURCE_PASS:postgres}
+    driver-class-name: org.postgresql.Driver
+  docker:
+    compose:
+      enabled: false
+  jpa:
+    hibernate:
+      ddl-auto: none
+      default_schema: test
+    show-sql: true
+    open-in-view: false
+  flyway:
+    enabled: true
+    locations: classpath:db/migration
+    baseline-on-migrate: true
+    schemas: test
+
+springdoc:
+  api-docs:
+    path: /v3/api-docs
+  swagger-ui:
+    path: /swagger-ui.html

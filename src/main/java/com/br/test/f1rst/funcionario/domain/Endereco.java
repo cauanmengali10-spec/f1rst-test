@@ -1,5 +1,6 @@
 package com.br.test.f1rst.funcionario.domain;
 
+import com.br.test.f1rst.funcionario.api.request.EnderecoRequest;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
@@ -52,4 +53,14 @@ public class Endereco {
     @OneToOne(mappedBy = "endereco")
     private Funcionario funcionario;
 
+
+    public Endereco(EnderecoRequest request) {
+        this.logradouro = request.getLogradouro();
+        this.numero = request.getNumero();
+        this.complemento = request.getComplemento();
+        this.bairro = request.getBairro();
+        this.cidade = request.getCidade();
+        this.estado = request.getEstado();
+        this.cep = request.getCep();
+    }
 }

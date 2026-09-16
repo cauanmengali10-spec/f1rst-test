@@ -18,7 +18,9 @@ spring:
   jpa:
     hibernate:
       ddl-auto: none
-      default_schema: f1rst
+    properties:
+      hibernate:
+        default_schema: f1rst
     show-sql: true
     open-in-view: false
   flyway:
